@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="carvalho.css">
+    <title>The New York Times</title>
+    <link rel="icon" type="image/png" href="./IMGs/lugro.ico">
+    
+<!-- ALUNOS: João Carvalho
+             Nicolly Corrêa
+     TURMA:  3INFO 2            
+-->
+
+</head>
+<body>
+    
+    
+    <header>
+        <div id="crvl">
+            <div class="jao">
+                <svg onclick="toggle_menu();" width="15" height="15" class="css-1570kgy" viewBox="0 0 15 15"><g id="Canvas" fill="none"><g id="close"><path d="M2 2l11 11" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" stroke="#111" id="Vector"></path><path d="M13 2L2 13" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" stroke="#111" id="Vector_2"></path></g></g></svg>
+                <div class="crr">
+                    <div class="css-83e46w"><input data-testid="search-input" class="css-1u4s13l" type="text" name="query" placeholder="SEARCH" aria-label="Search the new york times" value=""></div>
+                    <button data-testid="search-submit" type="submit" height="compact" disabled="" class="css-1gudca6 e1iflr852">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="pods">
+            <div class="pods_conteudo1"><svg aria-hidden="true" class="css-1fe7a5q" viewBox="0 0 16 16"><path fill="#333" d="M11.3,9.2C11.7,8.4,12,7.5,12,6.5C12,3.5,9.5,1,6.5,1S1,3.5,1,6.5S3.5,12,6.5,12c1,0,1.9-0.3,2.7-0.7l3.3,3.3c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4c0.6-0.6,0.6-1.5,0-2.1L11.3,9.2zM6.5,10.3c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C10.3,8.6,8.6,10.3,6.5,10.3z"></path></svg></div>
+            <div class="pods_conteudo2" id="pods_conteudo2"></div>
+            <div class="pods_conteudo3"></div>
+        </div>
+        <div class="pods2">
+            <svg onclick="toggle_menu();" aria-hidden="true" class="css-1fe7a5q" viewBox="0 0 16 16"><rect x="1" y="3" fill="#333" width="14" height="2"></rect><rect x="1" y="7" fill="#333" width="14" height="2"></rect><rect x="1" y="11" fill="#333" width="14" height="2"></rect></svg>
+            <img src="./IMGs/TheNewYorkTimes_logo.png" alt="logo">
+            <svg class="css-1p66nw2" viewBox="0 0 20 20" fill="#333" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.2379 6C14.2379 8.20914 12.4471 10 10.2379 10C8.02878 10 6.23792 8.20914 6.23792 6C6.23792 3.79086 8.02878 2 10.2379 2C12.4471 2 14.2379 3.79086 14.2379 6Z" fill="#333"></path><path d="M16.2355 14.5714C16.2371 14.5477 16.2379 14.5239 16.2379 14.5C16.2379 13.1193 13.5516 12 10.2379 12C6.92421 12 4.23792 13.1193 4.23792 14.5C4.23792 14.5239 4.23872 14.5477 4.24032 14.5714H4.23792V18H16.2379V14.5714H16.2355Z" fill="#333"></path></svg>
+        </div>
+        <div class="pods3" id="pods3">
+        </div>
+        <div class="linhapreta"></div>
+    </header>
+
+    <div class="conteudo">
+        <div class="conteudo_divisaoPrincipail1" id="conteudo_divisaoPrincipail1">
+
+        </div>
+        <div class="conteudo_divisaoPrincipail2"></div>
+        <div class="conteudo_divisaoPrincipail3">
+
+        </div>
+    </div>
+
+    <footer></footer>
+    <script defer>
+        const crvl = document.getElementById('crvl');
+        const body = document.querySelector('body');
+        crvl.style.display = "none"
+        body.style.overflowY = "hidden"
+          
+        function toggle_menu(){
+            const crvl = document.getElementById('crvl');
+            const body = document.querySelector('body');
+            console.log(`${crvl.style.display} - ${body.style.overflow}`)
+
+            if(crvl.style.display == "none"){
+                console.log("entrou")
+                crvl.style.display = "flex"
+                body.style.overflowY = "hidden"
+            }else{
+                console.log("saiu")
+                crvl.style.display = "none"
+                body.style.overflowY = "auto"
+            }
+        }
+
+
+
+        let nav_names = ["U.S.","World","Business","Arts","Lifestyle","opinion","Audio","Games","Cooking","Wirecutter","The Athletic"];
+        let name_header_conteudo2 = ["U.S.","INTERNACIONAL","CANADA","ESPANHOL","中文"];
+        nav_names.map((x)=>{
+            document.getElementById('pods3').innerHTML += `<div class='nav'> <div class='nav_conteudo'> <div class='nav_p'>${x} </div> <div class='nav_hover'></div></div> <img src="./IMGs/seta.png" alt="seta"></div>`;
+            document.getElementById('crvl').innerHTML += `<div class='nav'> <div class='nav_conteudo'> <div class='nav_p'>${x} </div> <div class='nav_hover'></div></div> <img src="./IMGs/seta.png" alt="seta"></div>`;
+        })
+        i = 0
+        name_header_conteudo2.map((x)=>{
+            document.getElementById('pods_conteudo2').innerHTML += `<div class='pods_conteudo2_p' onclick='Muda_header_conteudo2(${i});'> ${x} </div>`;
+            document.getElementById('crvl').innerHTML += `<div class='nav'> <div class='nav_conteudo'> <div class='nav_p'>${x} </div> <div class='nav_hover'></div></div> <img src="./IMGs/seta.png" alt="seta"></div>`;
+            i++
+        })
+        
+        let list_of_news = {
+            noticias:[
+                {
+                    titulo_inf1:"Spain, Norway and Ireland Recognize a Palestinian State, a Blow to Israel",
+                    titulo_class1:"titulo_class_1",
+                    informacoes1:"The European nations joined scores of others that recognize Palestinian statehood, adding to Israel’s isolation over the war.",
+                    titulo_inf2:"What does it mean to recognize a Palestinian state?",
+                    titulo_class2:"titulo_class_2",
+                    informacoes2:"Israel said it would withhold funds from the Palestinian Authority, signaling it was a response to the move by the three nations.",
+                    titulo_inf3:"",
+                    titulo_class3:"titulo_class_2",
+                    informacoes3:"",
+                    img:"https:\/\/static01.nyt.com/images/2024/05/22/multimedia/22mideast-HP-promo1100-wjfv/22mideast-HP-promo1100-wjfv-threeByTwoSmallAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale" 
+                },
+                {
+                    titulo_inf1:"How China Pulled So Far Ahead on Industrial Policy",
+                    titulo_class1:"titulo_class_2",
+                    informacoes1:"The United States and Europe are trying to catch up to a rival skilled in using all the levers of government and banking to dominate global manufacturing.",
+                    titulo_inf2:"",
+                    titulo_class2:"titulo_class_2",
+                    informacoes2:"",
+                    titulo_inf3:"",
+                    titulo_class3:"titulo_class_2",
+                    informacoes3:"",
+                    img:"https:\/\/static01.nyt.com/images/2024/05/24/multimedia/00china-US-01-kzvw/00china-US-01-kzvw-threeByTwoSmallAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"  
+                },
+                {
+                    titulo_inf1:"Reebok Isn’t a ‘Hobby’ for Shaquille O’Neal",
+                    titulo_class1:"titulo_class_2",
+                    informacoes1:"After pushing to be in charge of the company’s return to basketball, the Hall of Famer understands the stakes. “If this doesn’t work, everyone’s leaving,” he said.",
+                    titulo_inf2:"",
+                    titulo_class2:"titulo_class_2",
+                    informacoes2:"",
+                    titulo_inf3:"",
+                    titulo_class3:"titulo_class_2",
+                    informacoes3:"",
+                    img:"https:\/\/static01.nyt.com/images/2024/05/22/multimedia/SHAQ-REEBOK-COOL-jzpt/SHAQ-REEBOK-COOL-jzpt-threeByTwoSmallAt2X-v3.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"  
+                },
+            ],
+            noticias_direita:[
+                {
+                    titulo_inf1:"Reebok Isn’t a ‘Hobby’ for Shaquille O’Neal",
+                    titulo_class1:"titulo_class_2",
+                    informacoes1:"After pushing to be in charge of the company’s return to basketball, the Hall of Famer understands the stakes. “If this doesn’t work, everyone’s leaving,” he said.",
+                    titulo_inf2:"",
+                    titulo_class2:"titulo_class_2",
+                    informacoes2:"",
+                    titulo_inf3:"",
+                    titulo_class3:"titulo_class_2",
+                    informacoes3:"",
+                    img:"https:\/\/static01.nyt.com/images/2024/05/25/well/25Well-GenZ-Sun/25Well-GenZ-Sun-threeByTwoSmallAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale" 
+                },
+                {
+                    titulo_inf1:"Nadal Is Beaten in Straight Sets by Zverev at French Open",
+                    titulo_class1:"titulo_class_2",
+                    informacoes1:"Rafael Nadal, the 14-time winner at Roland Garros, lost to Alexander Zverev in the first round of the tournament.",
+                    titulo_inf2:"",
+                    titulo_class2:"titulo_class_2",
+                    informacoes2:"",
+                    titulo_inf3:"",
+                    titulo_class3:"titulo_class_2",
+                    informacoes3:"",
+                    img:"https:\/\/static01.nyt.com/images/2024/05/27/multimedia/ATH-frenchopen-nadal-hpbq/ATH-frenchopen-nadal-hpbq-threeByTwoSmallAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale" 
+                },
+            ],
+        }
+      
+        
+        let C_D_C = ``; 
+        for(let i = 0; i < list_of_news["noticias"].length; i++){
+
+            C_D_C = ``;
+            for(let i2 = 1; i2 < 4; i2++){
+                C_D_C += `<div class="${list_of_news["noticias"][i]["titulo_class"+i2]}"> ${list_of_news["noticias"][i]["titulo_inf"+i2]}</div>`;
+                C_D_C += `<div class="informacoes">${list_of_news["noticias"][i]["informacoes"+i2]}</div>`;
+            }
+
+            document.querySelectorAll('.conteudo_divisaoPrincipail1')[0].innerHTML += `<div class="noticias"> <div class="noticias_esquerda">${C_D_C}</div> <div class="noticias_direita"><img src="${list_of_news["noticias"][i]["img"]}" alt=""></div> </div>`;
+        }
+        let C_D_C_D = ``; 
+        for(let i = 0; i < list_of_news["noticias_direita"].length; i++){
+            C_D_C_D = ``;
+            for(let i2 = 1; i2 < 4; i2++){
+                C_D_C_D += `<div class="${list_of_news["noticias_direita"][i]["titulo_class"+i2]}"> ${list_of_news["noticias_direita"][i]["titulo_inf"+i2]}</div>`;
+                C_D_C_D += `<div class="informacoes">${list_of_news["noticias_direita"][i]["informacoes"+i2]}</div>`;
+            }
+
+            document.querySelectorAll('.conteudo_divisaoPrincipail3')[0].innerHTML += `<div class="noticias_da_direita"> <div class="noticias_esquerda2"><img src="${list_of_news["noticias_direita"][i]["img"]}" alt=""></div> <div class="noticias_direita2">${C_D_C_D}</div> </div>`;
+        }
+
+    
+        function Muda_header_conteudo2(index){
+          
+            const allHeaders = document.querySelectorAll('.header_conteudo2_p'); 
+            const cor_header_conteudo2 = document.querySelectorAll('.header_conteudo2_p')[index];
+            Object.values(allHeaders).forEach((x)=>{
+                x.style.color = "gray";
+            })
+            cor_header_conteudo2.style.color = "black";
+        }
+        
+
+    </script>
+</body>
+</html>
+

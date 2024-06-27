@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Interativo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="quiz-container">
+    <div id="question-container">
+        <h2 id="question">Pergunta aqui?</h2>
+        <div id="options-container">
+            <button class="option" onclick="checkAnswer(this)">Opção 1</button>
+            <button class="option" onclick="checkAnswer(this)">Opção 2</button>
+            <button class="option" onclick="checkAnswer(this)">Opção 3</button>
+            <button class="option" onclick="checkAnswer(this)">Opção 4</button>
+        </div>
+    </div>
+    <div id="result-container">
+        <p id="result"></p>
+        <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

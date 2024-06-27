@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="java.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ZAPZAP
+        
+    </title>
+</head>
+<body>
+
+    <div class="rodape">
+        Apelido:  <input type="text" id="apelido" size="5">
+        Mensagem: <input type="text" id="texto" size="30">
+    
+        <br> <br>
+        <button onclick="Enviar(); "> Enviar </button>
+        <br> <br>
+        <select id="emoji" onchange="EnviarEmojis();">
+            <option >
+                Emojis
+            </option>
+            <option value="https:\/\/1000logos.net/wp-content/uploads/2023/05/Nerd-Face-Emoji-description.png">
+                óculos
+            </option>
+            <option value="https:\/\/i.pinimg.com/originals/0a/04/71/0a0471cf0b1da8a4496550d6d20de90c.png">
+                Beijos
+            </option>
+        </select>
+
+    </div>
+    <div id="resposta" class="resposta"></div>
+</body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"></script>
+    <script>
+        topico = "cedup/texto"
+        client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "")
+        client.connect({onSuccess:Conectou})
+
+        function Conectou(){
+            client.subscribe(topico)
+            message = new Paho.MQTT.Message('')
+            message.destinationName = topico}
+
+        client.onConectionLost = Conexao_Perdida
+        client.onMessageArrived = Mensagem_Chegou
+
+        function Conexao_Perdida(responseObject){
+            if(responseObject.errorCode !== 0){
+                resposta.innerHTML += "Desconectado: " + responseObject.errorMessage}}
+
+        function Mensagem_Chegou(message){
+            resposta.innerHTML += "<br>"
+            mensagem = message.payloadString
+            mensagem = mensagem.replace(">","width='150px'>")
+            resposta.innerHTML += mensagem}
+
+        function Enviar(){
+            valor = apelido.value + ": " + texto.value
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)}
+
+        function EnviarEmojis(){
+            valor = apelido.value + ": " + "<img src='" + emoji.value + "' width='150px'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)}
+            function Ola(endereco){
+            valor = apelido.value + ": " + "<img src='" + endereco + "'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)
+            }
+
+        function Beijos(endereco){
+            valor = apelido.value + ": " + "<img src='" + endereco + "'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)
+        }
+
+        function Tchau(endereco){
+            valor = apelido.value + ": " + "<img src='" + endereco + "'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)
+        }
+
+        function Oculos(endereco){
+            valor = apelido.value + ": " + "<img src='" + endereco + "'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)
+        }
+
+        function Triste(endereco){
+            valor = apelido.value + ": " + "<img src='" + endereco + "'>"
+            message = new Paho.MQTT.Message(valor)
+            message.destinationName = topico
+            client.send(message)
+        }
+
+    </script>
+    <div class="d2"> 
+    
+    <div id="escolher">
+        <div class="escolher">
+            <button onclick="Ola('https:\/\/images.emojiterra.com/google/android-10/512px/1f44b.png')" class="botao">
+                <img src="https://images.emojiterra.com/google/android-10/512px/1f44b.png" alt="" class="img">
+            </button>Olá
+        </div>
+        <div class="escolher">
+            <button onclick="Beijos('https:\/\/i.pinimg.com/originals/0a/04/71/0a0471cf0b1da8a4496550d6d20de90c.png')" class="botao">
+                <img src="https://i.pinimg.com/originals/0a/04/71/0a0471cf0b1da8a4496550d6d20de90c.png" alt="" class="img">
+            </button>Beijos
+        </div>
+        <div class="escolher">
+            <button onclick="Tchau('https:\/\/images.emojiterra.com/google/android-10/512px/1f44b.png')" class="botao">
+                <img src="https://images.emojiterra.com/google/android-10/512px/1f44b.png" alt="" class="img">
+            </button>Tchau
+        </div>
+        <div class="escolher">
+            <button onclick="Oculos('https:\/\/emojiisland.com/cdn/shop/products/Emoji_Icon_-_Sunglasses_cool_emoji_grande.png?v=1571606093')" class="botao">
+                <img src="https://emojiisland.com/cdn/shop/products/Emoji_Icon_-_Sunglasses_cool_emoji_grande.png?v=1571606093" alt="" class="img">
+            </button>Óculos
+        </div>
+        <div class="escolher">
+            <button onclick="Triste('https:\/\/pngfre.com/wp-content/uploads/sad-emoji-poster.png')" class="botao">
+                <img src="https://pngfre.com/wp-content/uploads/sad-emoji-poster.png" alt="" class="img">
+            </button>Triste
+        </div>
+    </div>
+
+   
+
+</html>

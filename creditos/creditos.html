@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="DEV.png" type="image/x-icon">
+    <link rel="stylesheet" href="creditos.css">
+    <title>Créditos</title>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2">
+            <img src="menu.png" alt="" id="oas" onclick="toggleMenu()">
+        </div>
+        <nav class=" navbar">
+            <ul><a href="../home/capa.html"> Home </a></ul>
+            <ul><a href="../projetos/projetos.html"> Projetos </a></ul>
+            <ul><a href="https://github.com/jaocarvalhoo/jaocarvalhoo.github.io"> Repositório</a> </ul>
+            <ul><a href="../creditos/creditos.html"> Créditos</a> </ul>
+        </nav>
+        <div class="d3">
+            <img src="DEV.png" alt="">
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <ul><a href="../home/capa.html">Home</a></ul>
+        <ul><a href="../projetos/projetos.html">Projetos</a></ul>
+        <ul><a href="https://github.com/jaocarvalhoo/jaocarvalhoo.github.io">Repositório</a></ul>
+        <ul><a href="creditos.html">Créditos</a></ul>
+    </div>
+
+    <div class="title"> 
+        <h1> REFERENCIAS </h1> 
+    </div>
+         <div class="grande"> 
+            <div class="cred">
+                <div class="img1"> <a href="https://openai.com/chatgpt/">  <img src="chat.png" alt="chat gpt" id="gpt"> </a> </div>
+                <p id="pou"> Inteligencia Artificial - CHATGPT  </p>
+            </div>
+            <div class="cred1">
+                <div class="img1"> <a href="https://www.youtube.com/watch?v=3v2RUozpDVw">  <img src="youtube.png" alt="youtube"> </a></div>
+                <p id="pou"> YOUTUBE -  Estudo De Como Fazer Um PORTFOLIO </p>
+            </div>
+            <div class="cred2">
+                <div class="img1"> <a href="https://fonts.google.com/specimen/Roboto">   <img src="font.png" alt=""> </a> </div>
+                <p id="pou"> Google Fonts - Fonte Roboto</p>
+            </div>
+            <div class="cred3">
+                <div class="img1"> <a href="https://webaim.org/resources/contrastchecker/"> <img src="web.png" alt=""></a> </div>
+                <p id="pou"> Web AIM - Utilizado Para Testes</p>
+            </div>
+            <div class="cred4">
+                <div class="img1"> <a href="https://fontawesome.com/icons"> <img src="materia.png" alt="chat gpt"> </a> </div>
+                <p id="pou"> FontaWesome   </p>
+            </div>
+        </div>
+    
+        
+        <script>
+            function toggleMenu() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('active');
+            }
+        </script>
+
+</body>
+</html>

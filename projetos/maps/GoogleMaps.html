@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Google Maps</title>
+	<style>
+		#DIV_MAPA
+		{
+			width:500px;
+			height:400px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="DIV_MAPA">  </div>
+
+</body>
+
+<script>
+
+LAT = 0
+LON = 0
+
+function showPosition(position) 
+{
+    LAT = position.coords.latitude;
+    LON = position.coords.longitude;
+      
+}
+
+function CRIAR_MAPA() {
+
+	if (navigator.geolocation) 
+      {
+        navigator.geolocation.watchPosition(showPosition);
+		try{
+			LAT = position.coords.latitude;
+      		LON = position.coords.longitude;
+		}
+		catch(erro)
+		{
+			LAT = -26.314222   // Caso não tenha GPS escolha um local padrão
+			LON = -49.840245
+		}
+      } 
+      else 
+      { 
+        document.write("Seu navegador não suporta Geolocalização.");
+      }
+
+
+	var PROPRIEDADES= {
+	center:new google.maps.LatLng(LAT,LON),
+	zoom:18,
+	mapTypeId: google.maps.MapTypeId.HYBRID};	
+	var map = new google.maps.Map(document.getElementById("DIV_MAPA"),PROPRIEDADES);
+	
+	var MARCADOR1 = {lat:-26.314222,lng:-48.840245};
+	
+	var icone_marcador1 = new google.maps.Marker({position: MARCADOR1,
+	animation:google.maps.Animation.BOUNCE,
+	icon:{url:'seta.png',scaledSize: new google.maps.Size(30, 30)},});
+
+	icone_marcador1.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA">
+</script>
+
+</html>
